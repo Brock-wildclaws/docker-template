@@ -200,7 +200,9 @@ $title = $title ?? 'Bladwijzer';
 
 <body>
     <header>
-        <div class="wrap nav"><a class="logo" href="index.php">blad<b>wijzer</b></a></div>
+        <div class="wrap nav"><a class="logo" href="index.php">blad<b>wijzer</b></a>
+            <nav><a href="index.php">Collectie</a><?php if ($user && $user['role'] === 'Medewerker'): ?><a href="admin.php">Beheer</a><?php endif; ?><?php if ($user): ?><a class="pill" href="profile.php"><?= e($user['name']) ?></a><form method="post" action="logout.php"><button type="submit">Uitloggen</button></form><?php else: ?><a href="login.php">Inloggen</a><a href="register.php">Registreren</a><?php endif; ?></nav>
+        </div>
     </header>
     <main class="wrap">
         <?php if (!empty($message)): ?>
